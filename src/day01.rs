@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
@@ -35,6 +36,34 @@ pub fn p1() -> u32 {
                     *digits.last().unwrap_or(&0u32),
                 ]);
                 calibration += value
+            }
+        }
+    }
+    calibration
+}
+
+pub fn p2() -> u32 {
+    println!("--- Day 1: Trebuchet?! Part 2 ---");
+    let mut calibration: u32 = 0;
+    let map = HashMap::from([
+        ("one", 1),
+        ("two", 2),
+        ("three", 3),
+        ("four", 4),
+        ("five", 5),
+        ("six", 6),
+        ("seven", 7),
+        ("eight", 8),
+        ("nine", 9),
+    ]);
+    if let Ok(lines) = read_lines("./input/day01.txt") {
+        for line in lines {
+            if let Ok(text) = line {
+                let mut result = String::new();
+                for (k, v) in &map {
+                    result = text.replace(k, &v.to_string());
+                    println!("{result}");
+                }
             }
         }
     }

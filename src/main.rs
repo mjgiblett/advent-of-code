@@ -23,7 +23,8 @@ fn main() {
         };
         let result: u32;
         match puzzle {
-            1 => result = day01::p1(),
+            11 => result = day01::p1(),
+            12 => result = day01::p2(),
             _ => continue,
         }
         println!("{result}");
